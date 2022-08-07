@@ -1,4 +1,4 @@
-module local-aws-proxy
+module github.com/aryehlev/local-aws-proxy
 
 go 1.18
 
