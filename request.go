@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 )
 
-func WrapperHandler(w http.ResponseWriter, r *http.Request, apiHandlerFunc func(events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error)) http.HandlerFunc {
+func WrapperHandler(apiHandlerFunc func(events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error)) http.HandlerFunc {
 
-	return func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 
 		b, err := io.ReadAll(r.Body)
 		if err != nil {
